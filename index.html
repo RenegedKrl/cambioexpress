@@ -7,11 +7,12 @@
 <meta name="description" content="Oficina especializada em câmbio automático, DSG, CVT, mecatrônicas e módulos TCM em Jundiaí. Diagnóstico antes do orçamento e atendimento pelo WhatsApp (11) 96321-8005.">
 <meta name="theme-color" content="#0E0F11">
 <link rel="icon" href="assets/logo-light.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/video/hero.jpg">
+<link rel="preload" href="assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/video/hero-m.webp" media="(max-width:767px)">
+<link rel="preload" as="image" href="assets/video/hero.webp" media="(min-width:768px)">
 <style>
+@font-face{font-family:Satoshi;src:url(assets/fonts/satoshi-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Satoshi;src:url(assets/fonts/satoshi-500.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:Satoshi;src:url(assets/fonts/satoshi-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:Satoshi;src:url(assets/fonts/satoshi-900.woff2) format('woff2');font-weight:900;font-style:normal;font-display:swap}
 :root{
   --paper:#F3F2EE; --paper2:#E9E7E1; --ink:#121314; --muted:#5C6168; --line:#D9D6CE;
   --dark:#0E0F11; --dark2:#17191C; --dline:#2A2D31; --dtx:#F4F4F2; --dmuted:#A2A7AE;
@@ -383,7 +384,7 @@ footer.site a:hover{color:#fff}
 <main>
 <!-- HERÓI: para usar vídeo, salvar o Reels em assets/video/hero.mp4 (sem som, 6 a 10 s) -->
 <section class="hero">
-  <div class="hero-media"><video autoplay muted loop playsinline poster="assets/video/hero.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video></div>
+  <div class="hero-media"><video id="heroV" muted loop playsinline preload="none" poster="assets/video/hero-m.webp"></video></div>
   <div class="giant" aria-hidden="true">CÂMBIO</div>
   <div class="wrap">
     <div>
@@ -398,7 +399,7 @@ footer.site a:hover{color:#fff}
       <div><b>4,9</b><span>nota no Google</span></div>
       <div><b>33</b><span>avaliações</span></div>
       <div><b>2</b><span>unidades</span></div>
-      <button class="play-round" data-video="assets/video/DcMuYmHJjKy.mp4" aria-label="Ver vídeo da oficina"><img src="assets/video/DcMuYmHJjKy.jpg" alt=""></button>
+      <button class="play-round" data-video="assets/video/DcMuYmHJjKy.mp4" aria-label="Ver vídeo da oficina"><img src="assets/video/DcMuYmHJjKy.webp" alt=""></button>
     </div>
   </div>
 </section>
@@ -432,7 +433,7 @@ footer.site a:hover{color:#fff}
     </div>
     <div class="services">
       <article class="svc main">
-        <img loading="lazy" src="assets/ig/DbJOhFKRZUY.jpg" alt="Carcaça de câmbio automático aberta na bancada">
+        <img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt="Carcaça de câmbio automático aberta na bancada">
         <div>
           <h3>Reparo de câmbio automático</h3>
           <p>Abrimos, trocamos o que está gasto e testamos antes de devolver. Atendemos câmbios nacionais e importados, de todas as marcas.</p>
@@ -440,23 +441,23 @@ footer.site a:hover{color:#fff}
         </div>
       </article>
       <article class="svc">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=70&auto=format" alt="Troca de óleo">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=480&q=60&auto=format&fm=webp" alt="Troca de óleo">
         <div><h3>Troca de óleo do câmbio</h3><p>Feita com máquina própria para câmbio automático.</p><a class="more" data-wa="servico" data-msg="Quero orçar a troca de óleo do câmbio." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
-        <img loading="lazy" src="assets/ig/DbGke-hxpUV.jpg" alt="Mecatrônica de câmbio">
+        <img loading="lazy" decoding="async" src="assets/ig/DbGke-hxpUV.webp" alt="Mecatrônica de câmbio">
         <div><h3>Mecatrônicas</h3><p>Reparo e venda, com teste em bancada e garantia.</p><a class="more" data-wa="servico" data-msg="Preciso de reparo ou compra de mecatrônica." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
-        <img loading="lazy" src="assets/ig/DcZ0sQTtQYz.jpg" alt="Alavanca de câmbio automático">
+        <img loading="lazy" decoding="async" src="assets/ig/DcZ0sQTtQYz.webp" alt="Alavanca de câmbio automático">
         <div><h3>Módulos TCM</h3><p>Reparo, venda e clonagem do módulo que comanda o câmbio.</p><a class="more" data-wa="servico" data-msg="Preciso de reparo, compra ou clonagem de módulo TCM." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
-        <img loading="lazy" src="assets/ig/Db6xWc6tRbK.jpg" alt="Câmbio DSG na bancada">
+        <img loading="lazy" decoding="async" src="assets/ig/Db6xWc6tRbK.webp" alt="Câmbio DSG na bancada">
         <div><h3>DSG, CVT e automatizado</h3><p>Dupla embreagem, CVT e câmbios automatizados.</p><a class="more" data-wa="servico" data-msg="Meu carro tem câmbio DSG/CVT/automatizado e preciso de orçamento." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=70&auto=format" alt="Revisão do motor">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=480&q=60&auto=format&fm=webp" alt="Revisão do motor">
         <div><h3>Revisão do ano</h3><p>Óleo do motor e filtros, a revisão básica que todo carro precisa.</p><a class="more" data-wa="servico" data-msg="Quero orçar a revisão: óleo do motor e filtros." href="#">Pedir orçamento</a></div>
       </article>
       <!-- COMBO: aguardando o cliente confirmar condição -->
@@ -477,11 +478,11 @@ footer.site a:hover{color:#fff}
     <div class="shop">
       <div class="shop-vids">
         <button class="svid" data-video="assets/video/DbbOhk8xsLk.mp4" aria-label="Assistir: o que encontramos no câmbio">
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/DbbOhk8xsLk.jpg"><source src="assets/video/prev_DbbOhk8xsLk.mp4" type="video/mp4"></video>
+          <video muted loop playsinline preload="none" data-lazy poster="assets/video/DbbOhk8xsLk.webp"><source data-src="assets/video/prev_DbbOhk8xsLk.mp4" type="video/mp4"></video>
           <span class="reel-play"></span><span class="svid-cap"><small>Com áudio</small>O que encontramos no câmbio</span>
         </button>
         <button class="svid" data-video="assets/video/DbTsPnJp6vy.mp4" aria-label="Assistir: um câmbio aberto, explicado">
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/DbTsPnJp6vy.jpg"><source src="assets/video/prev_DbTsPnJp6vy.mp4" type="video/mp4"></video>
+          <video muted loop playsinline preload="none" data-lazy poster="assets/video/DbTsPnJp6vy.webp"><source data-src="assets/video/prev_DbTsPnJp6vy.mp4" type="video/mp4"></video>
           <span class="reel-play"></span><span class="svid-cap"><small>Com áudio</small>Um câmbio aberto, explicado</span>
         </button>
       </div>
@@ -544,10 +545,10 @@ footer.site a:hover{color:#fff}
     </div>
     <div class="reels-wrap">
     <div class="reels">
-      <button class="reel" data-video="assets/video/DeNqieWNZwV.mp4" aria-label="Assistir: Câmbio desmontado"><img loading="lazy" src="assets/video/DeNqieWNZwV.jpg" alt=""><span class="reel-play"></span><span class="reel-cap">Câmbio desmontado</span></button>
-      <button class="reel" data-video="assets/video/DcMuYmHJjKy.mp4" aria-label="Assistir: Montagem do conjunto"><img loading="lazy" src="assets/video/DcMuYmHJjKy.jpg" alt=""><span class="reel-play"></span><span class="reel-cap">Montagem do conjunto</span></button>
-      <button class="reel" data-video="assets/video/DbTsPnJp6vy.mp4" aria-label="Assistir: Carcaça aberta"><img loading="lazy" src="assets/video/DbTsPnJp6vy.jpg" alt=""><span class="reel-play"></span><span class="reel-cap">Carcaça aberta</span></button>
-      <button class="reel" data-video="assets/video/DbbOhk8xsLk.mp4" aria-label="Assistir: Pronto para voltar"><img loading="lazy" src="assets/video/DbbOhk8xsLk.jpg" alt=""><span class="reel-play"></span><span class="reel-cap">Pronto para voltar</span></button>
+      <button class="reel" data-video="assets/video/DeNqieWNZwV.mp4" aria-label="Assistir: Câmbio desmontado"><img loading="lazy" decoding="async" src="assets/video/DeNqieWNZwV.webp" alt=""><span class="reel-play"></span><span class="reel-cap">Câmbio desmontado</span></button>
+      <button class="reel" data-video="assets/video/DcMuYmHJjKy.mp4" aria-label="Assistir: Montagem do conjunto"><img loading="lazy" decoding="async" src="assets/video/DcMuYmHJjKy.webp" alt=""><span class="reel-play"></span><span class="reel-cap">Montagem do conjunto</span></button>
+      <button class="reel" data-video="assets/video/DbTsPnJp6vy.mp4" aria-label="Assistir: Carcaça aberta"><img loading="lazy" decoding="async" src="assets/video/DbTsPnJp6vy.webp" alt=""><span class="reel-play"></span><span class="reel-cap">Carcaça aberta</span></button>
+      <button class="reel" data-video="assets/video/DbbOhk8xsLk.mp4" aria-label="Assistir: Pronto para voltar"><img loading="lazy" decoding="async" src="assets/video/DbbOhk8xsLk.webp" alt=""><span class="reel-play"></span><span class="reel-cap">Pronto para voltar</span></button>
     </div>
     <div class="reels-nav"><button data-dir="-1" aria-label="Anterior">←</button><button data-dir="1" aria-label="Próximo">→</button></div>
     </div>
@@ -569,87 +570,87 @@ footer.site a:hover{color:#fff}
     </div>
     <div class="reviews">
       <article class="review">
-        <header><span class="av" data-i="I"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJbkWpqqwANi9xf89JI6fjRf-v1V7VF6q6DoPoF0M74Z-IHqA=s96-c" alt="" onerror="this.remove()"></span><div><b>Ingrid Tavares</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="I"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJbkWpqqwANi9xf89JI6fjRf-v1V7VF6q6DoPoF0M74Z-IHqA=s96-c" alt="" onerror="this.remove()"></span><div><b>Ingrid Tavares</b><span class="stars">★★★★★</span></div></header>
         <p>Levei a Volvo XC60 do meu pai depois de 6 meses com problema no câmbio e passar por 3 mecânicos que não resolveram… Aqui foi diferente! Resolveram de verdade 🙌 O Fernando é um amor ❤️ super atencioso e explica tudo direitinho. Atendimento humano e serviço top. Recomendo demais</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="L"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjV8grv9TN4VrmYU-PapyvR7vqQyqwLBCIABI5EoSfSvPTUY14JZ=s96-c" alt="" onerror="this.remove()"></span><div><b>Leandro Frigo</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="L"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjV8grv9TN4VrmYU-PapyvR7vqQyqwLBCIABI5EoSfSvPTUY14JZ=s96-c" alt="" onerror="this.remove()"></span><div><b>Leandro Frigo</b><span class="stars">★★★★★</span></div></header>
         <p>Eu tenho uma Mitsubishi Dakar 2012, 3.2, diesel. O atendimento dos caras é muito bom! Eles também são rápidos para resolver os problemas. Conversei com o Fernando e com o Everton. Resolveram o meu problema com o sensor da alavanca da transmissão e me orientaram sobre a transmissão automática!</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="J"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUXdXwcpUaE2T8UhEnnGuDHlDlU8uMOcUIx-_C6CgmH56zM0K7O_w=s96-c" alt="" onerror="this.remove()"></span><div><b>Jhonathan Guimarães</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="J"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUXdXwcpUaE2T8UhEnnGuDHlDlU8uMOcUIx-_C6CgmH56zM0K7O_w=s96-c" alt="" onerror="this.remove()"></span><div><b>Jhonathan Guimarães</b><span class="stars">★★★★★</span></div></header>
         <p>Uma gratidão enorme pelo atendimento, precisei de ajuda em um sábado, fui super bem esclarecido via telefone, passou confiança e enviei meu veículo sem receio, me ganharam na super recepção e prontidão, domínio técnico avançado, cumprimento de prazos e valores super acessíveis! Meu carro ficou zero bala! E ainda entregaram limpo e ladrilhando! Um diferencial gigante! Forte abraço rapaziada e sucesso na vida de vocês sempre! 🤙🏼</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="L"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWQpW50sxgCKye6GMKLu1IxhrpsYSdDZscjHkiTHUnL33uuf_0=s96-c" alt="" onerror="this.remove()"></span><div><b>Leandro Oliveira</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="L"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWQpW50sxgCKye6GMKLu1IxhrpsYSdDZscjHkiTHUnL33uuf_0=s96-c" alt="" onerror="this.remove()"></span><div><b>Leandro Oliveira</b><span class="stars">★★★★★</span></div></header>
         <p>Preço justo e um ótimo serviço! Confia no pessoal que eles sabem trabalhar e não ficam te empurrando serviço, pode confiar de verdade!</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocLYkmmUZHLeBBj-pDU59GOPntyRW7HdkE3UBJHmwsBEu3xqtw=s96-c" alt="" onerror="this.remove()"></span><div><b>Raphael Santana</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocLYkmmUZHLeBBj-pDU59GOPntyRW7HdkE3UBJHmwsBEu3xqtw=s96-c" alt="" onerror="this.remove()"></span><div><b>Raphael Santana</b><span class="stars">★★★★★</span></div></header>
         <p>Equipe nota 10. Desde o atendimento inicial até a entrega do veículo. Só tenho a agradecer pelo suporte. Vcs são os melhores.</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="G"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJRnVssBvnZ3t9rAb3Jj6G2FSQ_UqvHysYxwB7u4bRiUbztKA=s96-c" alt="" onerror="this.remove()"></span><div><b>Gustavo Crucitti da Costa</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="G"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJRnVssBvnZ3t9rAb3Jj6G2FSQ_UqvHysYxwB7u4bRiUbztKA=s96-c" alt="" onerror="this.remove()"></span><div><b>Gustavo Crucitti da Costa</b><span class="stars">★★★★★</span></div></header>
         <p>Ótimo atendimento e serviços prestados. Identificou e resolveu o problema rápido.</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="C"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocKwUUk7RPnyIPszxaDzhi-VAuLULWGVvG2sd_aD-q1eeQQWsA=s96-c" alt="" onerror="this.remove()"></span><div><b>Cláudio Ribeiro</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="C"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocKwUUk7RPnyIPszxaDzhi-VAuLULWGVvG2sd_aD-q1eeQQWsA=s96-c" alt="" onerror="this.remove()"></span><div><b>Cláudio Ribeiro</b><span class="stars">★★★★★</span></div></header>
         <p>Melhor oficina de transmissão do estado.</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="A"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjVqUC3erlI_wh2oc9eFMiatISSrdY3AjQFOMJQg9BPFgnwZV_GhGw=s96-c" alt="" onerror="this.remove()"></span><div><b>Amil Imobiliária</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="A"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjVqUC3erlI_wh2oc9eFMiatISSrdY3AjQFOMJQg9BPFgnwZV_GhGw=s96-c" alt="" onerror="this.remove()"></span><div><b>Amil Imobiliária</b><span class="stars">★★★★★</span></div></header>
         <p>Galera competente, conhecedores, preço justo e honestidade…. super recomendo!</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="J"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWsxOqYsZn26ielByy0BTo3cNtk3mwQ12UQhxmbaOaxvWyDSICNsg=s96-c" alt="" onerror="this.remove()"></span><div><b>Jessica Garcia</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="J"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWsxOqYsZn26ielByy0BTo3cNtk3mwQ12UQhxmbaOaxvWyDSICNsg=s96-c" alt="" onerror="this.remove()"></span><div><b>Jessica Garcia</b><span class="stars">★★★★★</span></div></header>
         <p>Excelente atendimento. Muito atenciosos e honestos. Recomendo!</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="E"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWf3J2xgJOtdKFfL3XI37C8iRjgipVCC4kovM8dA84yZwipEnyb2A=s96-c" alt="" onerror="this.remove()"></span><div><b>Edinelson Lima</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="E"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWf3J2xgJOtdKFfL3XI37C8iRjgipVCC4kovM8dA84yZwipEnyb2A=s96-c" alt="" onerror="this.remove()"></span><div><b>Edinelson Lima</b><span class="stars">★★★★★</span></div></header>
         <p>Super recomendado, serviço rápido e preço bom de prestação de serviços</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXrJcyZyJ0sb_9-ccCM8d9e1W-NZBfkNAadxNZ6ftb5sbZDfSUf_g=s96-c" alt="" onerror="this.remove()"></span><div><b>Reginaldo Filho</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXrJcyZyJ0sb_9-ccCM8d9e1W-NZBfkNAadxNZ6ftb5sbZDfSUf_g=s96-c" alt="" onerror="this.remove()"></span><div><b>Reginaldo Filho</b><span class="stars">★★★★★</span></div></header>
         <p>Profissionais de qualidade e ótimo atendimento, super recomendo 🙌😎</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJWycczPgkfJ-qUROnTFPAQfNny6EExDLtTM5_bBb2tr6JZvg=s96-c" alt="" onerror="this.remove()"></span><div><b>Renata Zulian</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJWycczPgkfJ-qUROnTFPAQfNny6EExDLtTM5_bBb2tr6JZvg=s96-c" alt="" onerror="this.remove()"></span><div><b>Renata Zulian</b><span class="stars">★★★★★</span></div></header>
         <p>Super indico, ótimos especialistas</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="I"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJAym3Fn9qWXkleR4bS_zIFBRSMATaY0_C97kJZiMmBSjkbmQ=s96-c" alt="" onerror="this.remove()"></span><div><b>Itamar Galdino</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="I"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocJAym3Fn9qWXkleR4bS_zIFBRSMATaY0_C97kJZiMmBSjkbmQ=s96-c" alt="" onerror="this.remove()"></span><div><b>Itamar Galdino</b><span class="stars">★★★★★</span></div></header>
         <p>Excelente profissionais e preço justo, top!</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="C"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjVCaAOmsiDw1w1VjdY61hDksDJygZKR7Mdq_GCEUlqSen0v8zI=s96-c" alt="" onerror="this.remove()"></span><div><b>Car Video</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="C"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjVCaAOmsiDw1w1VjdY61hDksDJygZKR7Mdq_GCEUlqSen0v8zI=s96-c" alt="" onerror="this.remove()"></span><div><b>Car Video</b><span class="stars">★★★★★</span></div></header>
         <p>Recomendo, ótimo atendimento e preço justo…</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="V"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXeFtpEAKqxq6XOc1jjNJCHlYk1QwWeWWL1l36bFNga-1wJdwQ=s96-c" alt="" onerror="this.remove()"></span><div><b>Valdir Marley Sousa Lima</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="V"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXeFtpEAKqxq6XOc1jjNJCHlYk1QwWeWWL1l36bFNga-1wJdwQ=s96-c" alt="" onerror="this.remove()"></span><div><b>Valdir Marley Sousa Lima</b><span class="stars">★★★★★</span></div></header>
         <p>Serviço excelente, rapidez, profissionais. Recomendo</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="F"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXbIxV8Eto3nVGokgrNLERb3JPhoiJV8sMzaNAWmeT1s1PmxryN=s96-c" alt="" onerror="this.remove()"></span><div><b>Fabio Vicente</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="F"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjXbIxV8Eto3nVGokgrNLERb3JPhoiJV8sMzaNAWmeT1s1PmxryN=s96-c" alt="" onerror="this.remove()"></span><div><b>Fabio Vicente</b><span class="stars">★★★★★</span></div></header>
         <p>Obrigado pelo atendimento e agilidade. Gostei bastante, sucesso</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="C"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUTEdIlD92HJ82l5EKXiuLyLwkXzuVAnAbhKbaVI3SkhLNyVl-4=s96-c" alt="" onerror="this.remove()"></span><div><b>Cassio Guilherme</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="C"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUTEdIlD92HJ82l5EKXiuLyLwkXzuVAnAbhKbaVI3SkhLNyVl-4=s96-c" alt="" onerror="this.remove()"></span><div><b>Cassio Guilherme</b><span class="stars">★★★★★</span></div></header>
         <p>Oficina top! Melhor qualidade</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocIRH3Ru8fWxVCY9SKfIMPNUNVYgxKYsLSJNVM7p5hCSE2TS8Q=s96-c" alt="" onerror="this.remove()"></span><div><b>Raquel Formigoni</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocIRH3Ru8fWxVCY9SKfIMPNUNVYgxKYsLSJNVM7p5hCSE2TS8Q=s96-c" alt="" onerror="this.remove()"></span><div><b>Raquel Formigoni</b><span class="stars">★★★★★</span></div></header>
         <p>Ótimo atendimento. Atende rápido.</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUk-Wan_Cfr7oJlurHL6VH367GczTHx_j4Uu9KtN0vZ9dlBSA=s96-c" alt="" onerror="this.remove()"></span><div><b>Roberto Luiz Neves</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjUk-Wan_Cfr7oJlurHL6VH367GczTHx_j4Uu9KtN0vZ9dlBSA=s96-c" alt="" onerror="this.remove()"></span><div><b>Roberto Luiz Neves</b><span class="stars">★★★★★</span></div></header>
         <p>Boa tarde, excelente atendimento</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="R"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocIiQ_r3dbJYUJEGQIfE8V6Kq96esR3GhzZeT4FjlaNCss9bxw=s96-c" alt="" onerror="this.remove()"></span><div><b>Ronaldo Fantinatti</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="R"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a/ACg8ocIiQ_r3dbJYUJEGQIfE8V6Kq96esR3GhzZeT4FjlaNCss9bxw=s96-c" alt="" onerror="this.remove()"></span><div><b>Ronaldo Fantinatti</b><span class="stars">★★★★★</span></div></header>
         <p>Ótimo atendimento</p>
       </article>
       <article class="review">
-        <header><span class="av" data-i="S"><img loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWy-HiTznrkS8apJ13HDq2CT6aMypZvFY94s5qrWXNh3rHquiyw7Q=s96-c" alt="" onerror="this.remove()"></span><div><b>Sidney Rodrigues Ferreira</b><span class="stars">★★★★★</span></div></header>
+        <header><span class="av" data-i="S"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/a-/ALV-UjWy-HiTznrkS8apJ13HDq2CT6aMypZvFY94s5qrWXNh3rHquiyw7Q=s96-c" alt="" onerror="this.remove()"></span><div><b>Sidney Rodrigues Ferreira</b><span class="stars">★★★★★</span></div></header>
         <p>Top, só excelência</p>
       </article>
     </div>
@@ -825,6 +826,13 @@ const setMenu=o=>{document.documentElement.classList.toggle("menu-open",o);docum
 menuBtn.addEventListener("click",()=>setMenu(!document.documentElement.classList.contains("menu-open")));
 menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false);});
+
+/* desempenho: vídeo do herói só depois que a página abriu; prévias só quando aparecem */
+const hv=document.getElementById("heroV");
+if(innerWidth>=768)hv.poster="assets/video/hero.webp";
+addEventListener("load",()=>setTimeout(()=>{hv.src=innerWidth<768?"assets/video/hero-m.mp4":"assets/video/hero.mp4";hv.play().catch(()=>{});},300));
+const lv=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.dataset.ok){v.querySelectorAll("source").forEach(s=>s.src=s.dataset.src);v.load();v.dataset.ok=1;}v.play().catch(()=>{});}else v.pause();}),{rootMargin:"200px"});
+document.querySelectorAll("video[data-lazy]").forEach(v=>lv.observe(v));
 const top_=document.getElementById("top"), sticky=document.getElementById("sticky"), fab=document.getElementById("fab");
 let inContact=false;
 new IntersectionObserver(([e])=>{inContact=e.isIntersecting;onScroll();},{threshold:.2}).observe(document.getElementById("contato"));
