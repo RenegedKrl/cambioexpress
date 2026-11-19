@@ -108,13 +108,15 @@ section{padding:var(--sec) 0}
 
 /* sintomas */
 .symptoms{display:grid;gap:10px}
-.sym{display:grid;gap:6px;padding:18px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:left}
+.sym{position:relative;display:grid;gap:4px;padding:16px 44px 16px 18px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:left}
 .sym:hover{border-color:var(--ac)}
 .sym:active{transform:scale(.98)}
 .sym strong{font-weight:600;font-size:17px;line-height:1.25;letter-spacing:-.01em}
 .sym span{color:var(--muted);font-size:15px;line-height:1.45}
-.sym small{margin-top:6px;font-size:14px;font-weight:600;color:var(--ac)}
-.sym small:after{content:" →"}
+.sym:after{content:"→";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--ac);font-size:18px;transition:transform .2s}
+.sym:hover:after{transform:translate(4px,-50%)}
+.sym small{font-size:14px;color:#B9BDC3}
+.sym.other:after{color:#fff}
 .sym.other{background:var(--ink);color:#fff;border-color:var(--ink)}
 .sym.other small{color:#9DB8FF}
 
@@ -181,12 +183,14 @@ section{padding:var(--sec) 0}
 .pickup{background:var(--ac);color:#fff;border-radius:26px;padding:32px 22px;display:grid;gap:16px;position:relative;overflow:hidden}
 .pickup h2{font-size:clamp(30px,8vw,48px)}
 .pickup p{color:rgba(255,255,255,.88);max-width:520px}
-.pickup .btns{display:grid;gap:10px}
+.pickup .btns{display:grid;gap:12px;justify-items:center}
+.pickup .btns .btn{width:100%}
+.call-link{color:#fff;font-size:15px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:1px}
 
 /* bastidores */
 .reels{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x pan-y;scroll-snap-type:x mandatory;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
-.reel{position:relative;flex:0 0 64%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;scroll-snap-align:start;background:#222;text-align:left}
+.reel{position:relative;flex:0 0 58%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;scroll-snap-align:start;background:#222;text-align:left}
 .reel img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .reel:hover img{transform:scale(1.04)}
 .reel:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.8))}
@@ -315,7 +319,6 @@ footer.site a:hover{color:#fff}
   .symptoms{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
   .sym{padding:24px;align-content:start}
   .sym.other{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
-  .sym.other small{margin:0}
   .services{grid-template-columns:1fr 1fr;gap:16px}
   .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
   .svc{grid-template-columns:240px minmax(0,1fr)}
@@ -397,16 +400,16 @@ footer.site a:hover{color:#fff}
 <section id="sintomas">
   <div class="wrap">
     <div class="head">
-      <h2>Sinais de que o câmbio precisa de atenção</h2>
-      <p class="sub">Reconheceu algum? Toque nele e a mensagem já vai pronta para a gente.</p>
+      <h2>Qual é o sintoma?</h2>
+      <p class="sub">Toque no seu e a mensagem já vai pronta.</p>
     </div>
     <div class="symptoms">
-      <button class="sym" data-wa="sintoma" data-msg="Meu carro está dando tranco nas trocas de marcha."><strong>Tranco na troca de marcha</strong><span>Solavanco na hora de trocar, mais comum com o carro frio ou em baixa velocidade.</span><small>Falar sobre isso</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="Acendeu a luz do câmbio no painel."><strong>Luz do câmbio acesa</strong><span>O módulo achou uma falha e gravou um código. Dá para ler antes que o defeito cresça.</span><small>Falar sobre isso</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro está patinando, sem força para sair."><strong>Patina ou fica sem força</strong><span>O giro sobe e o carro não acompanha. Costuma ser desgaste interno ou óleo vencido.</span><small>Falar sobre isso</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro demora para engatar o D ou a ré."><strong>Demora para engatar o D ou a ré</strong><span>Passam alguns segundos entre engatar e o carro responder.</span><small>Falar sobre isso</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro entrou em modo de emergência."><strong>Entrou em modo de emergência</strong><span>O câmbio trava numa marcha para se proteger. O ideal é rodar o mínimo até o diagnóstico.</span><small>Falar sobre isso</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="Meu câmbio manual está arranhando ou duro para engatar."><strong>Câmbio manual arranhando</strong><span>Marcha que arranha, escapa ou fica dura de engatar.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="Meu carro está dando tranco nas trocas de marcha."><strong>Tranco na troca de marcha</strong><span>Solavanco na troca, pior com o carro frio.</span></button>
+      <button class="sym" data-wa="sintoma" data-msg="Acendeu a luz do câmbio no painel."><strong>Luz do câmbio acesa</strong><span>O módulo gravou uma falha. A gente lê o código.</span></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro está patinando, sem força para sair."><strong>Patina ou fica sem força</strong><span>O giro sobe e o carro não anda junto.</span></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro demora para engatar o D ou a ré."><strong>Demora para engatar o D ou a ré</strong><span>Alguns segundos até o carro responder.</span></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro entrou em modo de emergência."><strong>Entrou em modo de emergência</strong><span>Travou numa marcha. Rode o mínimo possível.</span></button>
+      <button class="sym" data-wa="sintoma" data-msg="Meu câmbio manual está arranhando ou duro para engatar."><strong>Câmbio manual arranhando</strong><span>Arranha, escapa ou fica duro.</span></button>
       <button class="sym other" data-wa="sintoma" data-msg="Meu carro está com outro problema no câmbio. Vou explicar:"><strong>É outra coisa</strong><small>Contar o que está acontecendo</small></button>
     </div>
   </div>
@@ -417,12 +420,11 @@ footer.site a:hover{color:#fff}
   <div class="wrap">
     <div class="head">
       <h2>O que a gente faz</h2>
-      <p class="sub">Câmbio é o nosso trabalho do dia inteiro.</p>
     </div>
     <div class="services">
       <article class="svc">
         <img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt="Câmbio automático aberto na bancada">
-        <div><h3>Reparo de câmbio</h3><p>Automático e manual, incluindo DSG, CVT e automatizado. Nacionais e importados, de todas as marcas.</p><a class="more" data-wa="servico" data-msg="Quero orçar o reparo do meu câmbio." href="#">Pedir orçamento</a></div>
+        <div><h3>Reparo de câmbio</h3><p>Automático, manual, DSG, CVT e automatizado. Todas as marcas.</p><a class="more" data-wa="servico" data-msg="Quero orçar o reparo do meu câmbio." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
         <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=480&q=60&auto=format&fm=webp" alt="Troca de óleo do câmbio">
@@ -440,11 +442,11 @@ footer.site a:hover{color:#fff}
     <div class="pickup">
       <div style="display:grid;gap:14px">
         <h2>Leva e traz do seu carro</h2>
-        <p>Se o carro não roda ou você não tem tempo de levar, a gente busca em Jundiaí e região e devolve pronto. Atendemos também clientes de Campinas e São Paulo.</p>
+        <p>Buscamos e devolvemos em Jundiaí e região. Carro parado? A gente ajuda com o guincho. Também atendemos Campinas e São Paulo.</p>
       </div>
       <div class="btns">
         <a class="btn btn-white" data-wa="leva-traz" data-msg="Preciso do leva e traz para o meu carro." href="#">Pedir leva e traz</a>
-        <a class="btn btn-line" id="call2" href="#">Ligar agora</a>
+        <a class="call-link" id="call2" href="#">ou ligue (11) 96321-8005</a>
       </div>
     </div>
   </div>
@@ -456,7 +458,6 @@ footer.site a:hover{color:#fff}
     <div class="head" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px">
       <div style="display:grid;gap:12px">
         <h2>Da nossa bancada</h2>
-        <p class="sub">Câmbios que passaram pela oficina nas últimas semanas.</p>
       </div>
       <a class="more" style="color:#7FA3FF" href="https://www.instagram.com/cambioexpress01/" target="_blank" rel="noopener">@cambioexpress01</a>
     </div>
@@ -599,17 +600,14 @@ footer.site a:hover{color:#fff}
 <section id="faq">
   <div class="wrap faq-wrap">
     <div class="head">
-      <h2>Perguntas que a gente mais recebe</h2>
+      <h2>Dúvidas comuns</h2>
       <div><a class="more" data-wa="faq" data-msg="Tenho uma dúvida sobre o meu câmbio:" href="#">Mandar outra pergunta</a></div>
     </div>
     <div class="faq">
       <details name="faq"><summary>Quanto custa arrumar o câmbio?</summary><p>Depende do defeito e do câmbio do carro. Por isso o diagnóstico vem antes: você recebe o valor e decide se quer fazer.</p></details>
       <details name="faq"><summary>Quanto tempo o carro fica aí?</summary><p>Um reparo completo leva de 10 a 15 dias. Troca de óleo do câmbio e serviços menores são bem mais rápidos. O prazo vai junto com o orçamento.</p></details>
       <details name="faq"><summary>Tem garantia?</summary><p>Sim, os serviços têm garantia. O prazo vem escrito no orçamento.</p></details>
-      <details name="faq"><summary>Vocês buscam o carro?</summary><p>Sim, temos leva e traz em Jundiaí e região. Se o carro não roda, ajudamos a combinar o guincho.</p></details>
       <details name="faq"><summary>Compensa consertar ou trocar o câmbio?</summary><p>Depende do estado das peças. Depois do diagnóstico explicamos as duas opções com os valores.</p></details>
-      <details name="faq"><summary>Atendem carro importado?</summary><p>Sim, nacionais e importados, de todas as marcas.</p></details>
-      <details name="faq"><summary>Fazem outros serviços além de câmbio?</summary><p>Fazemos a revisão do ano: troca de óleo do motor e filtros.</p></details>
     </div>
   </div>
 </section>
@@ -620,7 +618,7 @@ footer.site a:hover{color:#fff}
       <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar o reparo do meu câmbio automático."><img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt=""><span><b>Câmbio automático</b><small>Reparo completo, com teste antes de devolver.</small></span></button>
       <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar o reparo do meu câmbio manual."><img loading="lazy" decoding="async" src="assets/video/DbTsPnJp6vy.webp" alt=""><span><b>Câmbio manual</b><small>Marcha arranhando, dura ou escapando.</small></span></button>
       <button class="tile" data-wa="todos-servicos" data-msg="Meu carro tem câmbio DSG/CVT/automatizado e preciso de orçamento."><img loading="lazy" decoding="async" src="assets/ig/Db6xWc6tRbK.webp" alt=""><span><b>DSG, CVT e automatizado</b><small>Dupla embreagem, CVT e câmbios automatizados.</small></span></button>
-      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar a troca de óleo do câmbio."><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=320&q=60&auto=format&fm=webp" alt=""><span><b>Troca de óleo do câmbio</b><small>Com máquina própria para câmbio automático.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar a troca de óleo do câmbio."><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=320&q=60&auto=format&fm=webp" alt=""><span><b>Troca de óleo do câmbio</b><small>Óleo e filtro do câmbio automático.</small></span></button>
       <button class="tile" data-wa="todos-servicos" data-msg="Preciso de reparo ou compra de mecatrônica."><img loading="lazy" decoding="async" src="assets/ig/DbGke-hxpUV.webp" alt=""><span><b>Mecatrônicas</b><small>Reparo e venda, com teste em bancada.</small></span></button>
       <button class="tile" data-wa="todos-servicos" data-msg="Preciso de reparo, compra ou clonagem de módulo TCM."><img loading="lazy" decoding="async" src="assets/ig/DcZ0sQTtQYz.webp" alt=""><span><b>Módulos TCM</b><small>Reparo, venda e clonagem do módulo do câmbio.</small></span></button>
       <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar a revisão: óleo do motor e filtros."><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=320&q=60&auto=format&fm=webp" alt=""><span><b>Revisão do ano</b><small>Óleo do motor e filtros.</small></span></button>
@@ -632,11 +630,11 @@ footer.site a:hover{color:#fff}
 <footer class="site">
   <div class="wrap">
     <img src="assets/logo-light.svg" alt="Câmbio Express" width="95" height="30">
-    <p>Câmbio automático, DSG, CVT, mecatrônicas e módulos TCM em Jundiaí/SP.</p>
+    <p>Conserto de câmbio automático e manual e troca de óleo do câmbio em Jundiaí/SP.</p>
     <nav>
       <a href="https://www.instagram.com/cambioexpress01/" target="_blank" rel="noopener">Instagram</a>
       <a href="#" data-wa="rodape">WhatsApp</a>
-      <a href="#contato">Endereços</a>
+      <a href="#contato">Como chegar</a>
     </nav>
   </div>
 </footer>
