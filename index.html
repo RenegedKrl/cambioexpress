@@ -66,21 +66,17 @@ section{padding:var(--sec) 0}
 .menu-open .burger i:first-child{top:14px;transform:rotate(45deg)}
 .menu-open .burger i:last-child{top:14px;transform:rotate(-45deg)}
 .top.pill .menu-btn{height:40px}
-.menu{position:fixed;inset:0;z-index:70;background:#0B1330;color:#fff;clip-path:circle(0% at calc(100% - 44px) 36px);transition:clip-path .8s cubic-bezier(.7,0,.2,1),visibility 0s .8s;visibility:hidden;overflow:auto}
-.menu:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 80% 0%,rgba(31,94,255,.45),transparent 70%);pointer-events:none}
-.menu-open .menu{clip-path:circle(150% at calc(100% - 44px) 36px);visibility:visible;transition:clip-path .8s cubic-bezier(.7,0,.2,1),visibility 0s}
-.menu-in{position:relative;min-height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:96px var(--pad) calc(28px + env(safe-area-inset-bottom));max-width:var(--max);margin:0 auto}
+.menu{position:fixed;z-index:79;top:74px;right:max(12px,calc((100% - var(--max))/2 + 8px));width:min(300px,calc(100% - 24px));background:rgba(11,19,48,.96);backdrop-filter:blur(16px);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:24px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transform-origin:top right;opacity:0;transform:translateY(-10px) scale(.92);visibility:hidden;transition:opacity .3s,transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
+.menu-open .menu{opacity:1;transform:none;visibility:visible;transition:opacity .25s,transform .5s cubic-bezier(.2,1.2,.3,1),visibility 0s}
+.menu-in{padding:10px}
 .menu-links{display:grid}
-.menu-links a{font-size:clamp(30px,8.6vw,64px);font-weight:500;letter-spacing:-.035em;line-height:1.18;padding:2px 0;opacity:0;transform:translateY(40px);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1),color .2s;display:flex;align-items:center;gap:12px}
-.menu-links a:after{content:"→";font-size:.5em;color:#7FA3FF;opacity:0;transform:translateX(-10px);transition:opacity .25s,transform .25s}
-.menu-links a:hover{color:#9DB8FF}
-.menu-links a:hover:after{opacity:1;transform:none}
+.menu-links a{display:flex;align-items:center;justify-content:space-between;font-size:18px;font-weight:500;padding:13px 14px;border-radius:14px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1),background .2s}
+.menu-links a:after{content:"→";color:#7FA3FF;opacity:.5;transition:transform .2s,opacity .2s}
+.menu-links a:hover{background:rgba(255,255,255,.07)}
+.menu-links a:hover:after{opacity:1;transform:translateX(3px)}
 .menu-open .menu-links a{opacity:1;transform:none}
-.menu-foot{display:grid;gap:14px;opacity:0;transform:translateY(20px);transition:opacity .3s,transform .4s}
-.menu-open .menu-foot{transition:opacity .5s .5s,transform .6s .5s}
-.menu-open .menu-foot{opacity:1;transform:none}
-.menu-foot p{color:#AEB4BD;font-size:14px;line-height:1.6}
-body.menu-lock{overflow:hidden}
+.menu-foot{padding:10px 14px 8px;border-top:1px solid rgba(255,255,255,.1);margin-top:6px}
+.menu-foot p{color:#AEB4BD;font-size:13px;line-height:1.6}
 .top img{height:34px;width:auto}
 .top nav{display:none;gap:26px;color:#C9CCD1;font-size:15px}
 .top nav a:hover{color:#fff}
@@ -237,9 +233,13 @@ body.menu-lock{overflow:hidden}
 .unit .btn{min-height:48px;font-size:15px;padding:0 12px}
 .hours{color:var(--dmuted);font-size:15px;line-height:1.7}
 .hours b{color:#fff;font-weight:600}
-.others{padding:0 0 48px}
-.others p{border-top:1px solid var(--line);padding-top:24px;color:var(--muted);font-size:15px}
-.others b{color:var(--ink);font-weight:600}
+.all-svc{padding-top:0}
+.tiles{display:grid;gap:10px}
+.tile{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;padding:10px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:left;transition:border-color .2s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.tile:hover{border-color:var(--ac);transform:translateY(-3px)}
+.tile img{width:72px;height:72px;border-radius:12px;object-fit:cover}
+.tile b{display:block;font-size:16px;font-weight:600;line-height:1.25}
+.tile small{display:block;margin-top:3px;font-size:14px;color:var(--muted);line-height:1.4}
 .row2{display:grid;gap:10px;margin-top:6px}
 .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--dline);aspect-ratio:4/3;background:#1a1c20;margin-top:22px}
 .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
@@ -290,9 +290,6 @@ footer.site a:hover{color:#fff}
   .top nav{display:flex}
   .top.pill{width:min(980px,calc(100% - 32px));top:14px}
   .top.pill .wrap{padding:0 8px 0 22px}
-  .menu-links{grid-template-columns:1fr 1fr;column-gap:60px}
-  .menu-foot{grid-template-columns:auto 1fr;align-items:center;gap:28px}
-  .menu-foot .btn{width:auto;padding:0 32px}
   .top img{height:38px}
   .hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;text-align:left;padding-bottom:64px;padding-top:calc(70px + min(21vw,330px)*.8 + 156px);margin:0 auto auto;width:100%}
   .hero-media:after{background:linear-gradient(180deg,rgba(10,30,90,.55) 0%,rgba(8,14,40,.4) 35%,rgba(5,7,13,.78) 62%,rgba(5,7,13,.92) 85%,#05070D 100%),radial-gradient(80% 50% at 50% 30%,rgba(31,94,255,.35),transparent 70%)}
@@ -320,6 +317,7 @@ footer.site a:hover{color:#fff}
   .sym.other{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
   .sym.other small{margin:0}
   .services{grid-template-columns:1fr 1fr;gap:16px}
+  .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
   .svc{grid-template-columns:240px minmax(0,1fr)}
   .svc img{aspect-ratio:auto;height:0;min-height:100%}
   .svc div{padding:24px 28px}
@@ -370,6 +368,7 @@ footer.site a:hover{color:#fff}
       <a href="#servicos">Serviços</a>
       <a href="#avaliacoes">Avaliações</a>
       <a href="#faq">Dúvidas</a>
+      <a href="#todos-servicos">Todos os serviços</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="menu-foot">
@@ -614,8 +613,19 @@ footer.site a:hover{color:#fff}
     </div>
   </div>
 </section>
-<section class="others">
-  <div class="wrap"><p><b>Também fazemos:</b> reparo e venda de mecatrônicas, módulos TCM e a revisão do ano (óleo do motor e filtros).</p></div>
+<section class="all-svc" id="todos-servicos">
+  <div class="wrap">
+    <div class="head"><h2>Todos os nossos serviços</h2><p class="sub">Toque no serviço para pedir orçamento.</p></div>
+    <div class="tiles">
+      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar o reparo do meu câmbio automático."><img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt=""><span><b>Câmbio automático</b><small>Reparo completo, com teste antes de devolver.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar o reparo do meu câmbio manual."><img loading="lazy" decoding="async" src="assets/video/DbTsPnJp6vy.webp" alt=""><span><b>Câmbio manual</b><small>Marcha arranhando, dura ou escapando.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Meu carro tem câmbio DSG/CVT/automatizado e preciso de orçamento."><img loading="lazy" decoding="async" src="assets/ig/Db6xWc6tRbK.webp" alt=""><span><b>DSG, CVT e automatizado</b><small>Dupla embreagem, CVT e câmbios automatizados.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar a troca de óleo do câmbio."><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=320&q=60&auto=format&fm=webp" alt=""><span><b>Troca de óleo do câmbio</b><small>Com máquina própria para câmbio automático.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Preciso de reparo ou compra de mecatrônica."><img loading="lazy" decoding="async" src="assets/ig/DbGke-hxpUV.webp" alt=""><span><b>Mecatrônicas</b><small>Reparo e venda, com teste em bancada.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Preciso de reparo, compra ou clonagem de módulo TCM."><img loading="lazy" decoding="async" src="assets/ig/DcZ0sQTtQYz.webp" alt=""><span><b>Módulos TCM</b><small>Reparo, venda e clonagem do módulo do câmbio.</small></span></button>
+      <button class="tile" data-wa="todos-servicos" data-msg="Quero orçar a revisão: óleo do motor e filtros."><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=320&q=60&auto=format&fm=webp" alt=""><span><b>Revisão do ano</b><small>Óleo do motor e filtros.</small></span></button>
+    </div>
+  </div>
 </section>
 </main>
 
@@ -685,7 +695,7 @@ document.querySelectorAll(".faq details").forEach(d=>d.addEventListener("toggle"
 /* ===== movimento ===== */
 const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* marca o que entra com a rolagem (em grupo, com atraso em cascata) */
-const groups=[[".head",0],[".sym",.06],[".reviews","fade"],[".svc",.08],[".combo",0],[".svid",.12],[".fact",.1],["#oficina .facts .btn",0],[".step",.12],[".tip",0],[".pickup","zoom"],[".reels","fade"],[".faq details",.05],[".unit",.1],[".form",0],[".hours",0],["section > .wrap > div[style*='margin-top']",0]];
+const groups=[[".head",0],[".sym",.06],[".reviews","fade"],[".svc",.08],[".combo",0],[".svid",.12],[".fact",.1],["#oficina .facts .btn",0],[".step",.12],[".tip",0],[".pickup","zoom"],[".reels","fade"],[".faq details",.05],[".tile",.05],[".unit",.1],[".form",0],[".hours",0],["section > .wrap > div[style*='margin-top']",0]];
 groups.forEach(([sel,st])=>{let i=0,last=null;document.querySelectorAll(sel).forEach(el=>{if(el.closest(".hero"))return;el.setAttribute("data-r",typeof st==="string"?st:"");const par=el.parentElement;if(par!==last){i=0;last=par;}if(typeof st==="number")el.style.setProperty("--d",Math.min(i*st,.6)+"s");i++;});});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px",threshold:.08});
 document.querySelectorAll("[data-r]").forEach(el=>reduced?el.classList.add("in"):io.observe(el));
@@ -698,8 +708,9 @@ if(giant&&!reduced)addEventListener("scroll",()=>{if(scrollY<innerHeight)giant.s
 if(!reduced&&matchMedia("(pointer:fine)").matches)document.querySelectorAll(".btn,.menu-btn,.play-round").forEach(el=>{el.addEventListener("mousemove",e=>{const r=el.getBoundingClientRect();el.style.translate=((e.clientX-r.left-r.width/2)*.18)+"px "+((e.clientY-r.top-r.height/2)*.25)+"px";});el.addEventListener("mouseleave",()=>{el.style.translate="";});});
 /* menu */
 const menuBtn=document.getElementById("menuBtn"),menu=document.getElementById("menu");
-const setMenu=o=>{document.documentElement.classList.toggle("menu-open",o);document.body.classList.toggle("menu-lock",o);menuBtn.setAttribute("aria-expanded",o);menu.setAttribute("aria-hidden",!o);menuBtn.querySelector(".menu-lbl").textContent=o?"Fechar":"Menu";if(o)menu.querySelectorAll(".menu-links a").forEach((a,i)=>a.style.transitionDelay=(.18+i*.05)+"s");else{const l=[...menu.querySelectorAll(".menu-links a")];l.forEach((a,i)=>a.style.transitionDelay=((l.length-1-i)*.03)+"s");}};
-menuBtn.addEventListener("click",()=>setMenu(!document.documentElement.classList.contains("menu-open")));
+const setMenu=o=>{document.documentElement.classList.toggle("menu-open",o);menuBtn.setAttribute("aria-expanded",o);menu.setAttribute("aria-hidden",!o);menuBtn.querySelector(".menu-lbl").textContent=o?"Fechar":"Menu";if(o)menu.querySelectorAll(".menu-links a").forEach((a,i)=>a.style.transitionDelay=(.05+i*.04)+"s");else{const l=[...menu.querySelectorAll(".menu-links a")];l.forEach((a,i)=>a.style.transitionDelay=((l.length-1-i)*.03)+"s");}};
+menuBtn.addEventListener("click",e=>{e.stopPropagation();setMenu(!document.documentElement.classList.contains("menu-open"));});
+document.addEventListener("click",e=>{if(document.documentElement.classList.contains("menu-open")&&!menu.contains(e.target))setMenu(false);});
 menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false);});
 
