@@ -111,17 +111,16 @@ body.menu-lock{overflow:hidden}
 .play-round:after{content:"";position:absolute;left:50%;top:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 2.2l4.2 2.8-4.2 2.8z' fill='%231F5EFF'/%3E%3C/svg%3E") center/14px no-repeat;box-shadow:0 0 0 6px rgba(255,255,255,.18)}
 
 /* sintomas */
-.symptoms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.sym{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:128px;padding:18px 16px 16px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:left;transition:border-color .2s,transform .15s}
+.symptoms{display:grid;gap:10px}
+.sym{display:grid;gap:6px;padding:18px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:left}
 .sym:hover{border-color:var(--ac)}
-.sym:active{transform:scale(.97)}
-.sym strong{display:block;font-weight:600;font-size:16px;line-height:1.28;letter-spacing:-.01em}
-.sym small{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);white-space:nowrap}
-.sym small svg{width:16px;height:16px;fill:var(--wa);flex:none}
-.sym small:after{content:"→";margin-left:auto;color:var(--ac);font-size:15px}
-.sym.other{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;background:var(--ink);color:#fff;border-color:var(--ink)}
-.sym.other small{color:#B9BDC3}
-.sym.other small:after{color:#fff;margin-left:10px}
+.sym:active{transform:scale(.98)}
+.sym strong{font-weight:600;font-size:17px;line-height:1.25;letter-spacing:-.01em}
+.sym span{color:var(--muted);font-size:15px;line-height:1.45}
+.sym small{margin-top:6px;font-size:14px;font-weight:600;color:var(--ac)}
+.sym small:after{content:" →"}
+.sym.other{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sym.other small{color:#9DB8FF}
 
 /* oficina */
 .shop{display:grid;gap:14px}
@@ -238,6 +237,12 @@ body.menu-lock{overflow:hidden}
 .unit .btn{min-height:48px;font-size:15px;padding:0 12px}
 .hours{color:var(--dmuted);font-size:15px;line-height:1.7}
 .hours b{color:#fff;font-weight:600}
+.others{padding:0 0 48px}
+.others p{border-top:1px solid var(--line);padding-top:24px;color:var(--muted);font-size:15px}
+.others b{color:var(--ink);font-weight:600}
+.row2{display:grid;gap:10px;margin-top:6px}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--dline);aspect-ratio:4/3;background:#1a1c20;margin-top:22px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
 
 footer.site{background:var(--dark);color:var(--dmuted);border-top:1px solid var(--dline);padding:32px 0 28px;font-size:14px}
 footer.site .wrap{display:grid;gap:16px}
@@ -251,7 +256,9 @@ footer.site a:hover{color:#fff}
 .sticky .btn{min-height:54px}
 .sticky .call{border-radius:999px;border:1.5px solid var(--ink);display:grid;place-items:center}
 .sticky .call svg{width:22px;height:22px}
-.fab{display:none}
+.fab{display:grid;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);place-items:center;box-shadow:0 10px 28px -8px rgba(0,0,0,.45);transform:scale(0);transition:transform .3s}
+.fab.show{transform:scale(1)}
+.fab svg{width:28px;height:28px}
 
 /* animações de entrada */
 .js [data-r]{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
@@ -308,22 +315,15 @@ footer.site a:hover{color:#fff}
   .shop .facts .btn{justify-self:start}
   .fact{padding:24px}
   .shop-pics{height:520px}
-  .symptoms{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-  .sym.other{grid-column:span 2;min-height:150px}
-  .sym{min-height:150px;padding:22px 20px 18px}
-  .sym strong{font-size:17px}
-  .services{grid-template-columns:repeat(3,1fr);gap:16px}
-  .svc{grid-template-columns:1fr}
-  .svc img{aspect-ratio:4/3;height:auto;min-height:0}
-  .svc div{padding:20px}
-  .svc.main{grid-column:span 3;grid-template-columns:1fr 1fr}
-  .svc.main img{aspect-ratio:auto;height:480px}
-  .svc.main div{padding:44px;justify-content:center}
-  .svc.main h3{font-size:34px}
-  .svc.main .btn{width:auto;align-self:flex-start}
-  .combo{grid-column:auto;grid-template-columns:1fr;align-content:center;gap:18px;padding:32px 28px}
-  .combo b{font-size:24px;line-height:1.15}
-  .combo .btn{justify-self:start}
+  .symptoms{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .sym{padding:24px;align-content:start}
+  .sym.other{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+  .sym.other small{margin:0}
+  .services{grid-template-columns:1fr 1fr;gap:16px}
+  .svc{grid-template-columns:240px minmax(0,1fr)}
+  .svc img{aspect-ratio:auto;height:0;min-height:100%}
+  .svc div{padding:24px 28px}
+  .svc{min-height:220px}
   .review{flex:0 0 340px;height:280px}
   .rev-nav{display:flex;gap:8px}
   .rev-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--dline);color:#fff;font-size:20px}
@@ -337,7 +337,9 @@ footer.site a:hover{color:#fff}
   .reels-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--dline);color:#fff;font-size:20px}
   .vp video{object-fit:contain}
   .faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+  .row2{grid-template-columns:auto auto;justify-content:start}
+  .map{margin-top:0}
   .info{margin-top:28px}
   .sticky{display:none}
   .fab{display:grid;position:fixed;right:26px;bottom:26px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);place-items:center;box-shadow:0 10px 28px -8px rgba(0,0,0,.45);transform:scale(0);transition:transform .3s}
@@ -366,16 +368,11 @@ footer.site a:hover{color:#fff}
     <nav class="menu-links">
       <a href="#sintomas">Sintomas</a>
       <a href="#servicos">Serviços</a>
-      <a href="#oficina">Quem cuida</a>
-      <a href="#como">Como funciona</a>
-      <a href="#leva">Leva e traz</a>
-      <a href="#bastidores">Bastidores</a>
       <a href="#avaliacoes">Avaliações</a>
-      <a href="#contato">Contato</a>
       <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
     </nav>
     <div class="menu-foot">
-      <a class="btn btn-wa btn-full" data-wa="menu" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Chamar no WhatsApp</a>
       <p>Seg. a sex. 8h às 18h · sáb. 8h às 12h<br>(11) 96321-8005 · Jundiaí/SP</p>
     </div>
   </div>
@@ -389,144 +386,65 @@ footer.site a:hover{color:#fff}
   <div class="wrap">
     <div>
       <h1>Câmbio com tranco ou <br class="m"><em>luz acesa</em> no painel?</h1>
-      <p class="lead">Conserto de câmbio automático, DSG e CVT em Jundiaí. Você recebe o diagnóstico e o valor antes de autorizar.</p>
+      <p class="lead">Conserto de câmbio automático e manual em Jundiaí. Você recebe o diagnóstico e o valor antes de autorizar.</p>
       <div class="ctas">
         <a class="btn btn-ac" data-wa="hero" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Falar com um especialista</a>
         <a class="alt" href="#sintomas">Descobrir o meu sintoma</a>
       </div>
     </div>
-    <div class="hero-stats">
-      <div><b>4,9</b><span>nota no Google</span></div>
-      <div><b>33</b><span>avaliações</span></div>
-      <div><b>2</b><span>unidades</span></div>
-      <button class="play-round" data-video="assets/video/DcMuYmHJjKy.mp4" aria-label="Ver vídeo da oficina"><img src="assets/video/DcMuYmHJjKy.webp" alt=""></button>
-    </div>
   </div>
 </section>
 
-<!-- SINTOMAS -->
 <section id="sintomas">
   <div class="wrap">
     <div class="head">
-      <h2>O que o carro está fazendo?</h2>
-      <p class="sub">Toque no sintoma e ele vai escrito para o nosso WhatsApp. Depois é só mandar o modelo e o ano do carro.</p>
+      <h2>Sinais de que o câmbio precisa de atenção</h2>
+      <p class="sub">Reconheceu algum? Toque nele e a mensagem já vai pronta para a gente.</p>
     </div>
     <div class="symptoms">
-      <button class="sym" data-wa="sintoma" data-msg="Meu carro está dando tranco nas trocas de marcha."><strong>Tranco na troca de marcha</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="Acendeu a luz do câmbio no painel."><strong>Luz do câmbio acesa no painel</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro está patinando, sem força para sair."><strong>Patina ou fica sem força</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro demora para engatar o D ou a ré."><strong>Demora para engatar o D ou a ré</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O câmbio está fazendo barulho ou vibrando."><strong>Barulho ou vibração</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym" data-wa="sintoma" data-msg="O carro entrou em modo de emergência."><strong>Entrou em modo de emergência</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
-      <button class="sym other" data-wa="sintoma" data-msg="Meu carro está com outro problema. Vou explicar:"><strong>É outra coisa</strong><small><svg viewBox="0 0 24 24"><use href="#wa"/></svg>WhatsApp</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="Meu carro está dando tranco nas trocas de marcha."><strong>Tranco na troca de marcha</strong><span>Solavanco na hora de trocar, mais comum com o carro frio ou em baixa velocidade.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="Acendeu a luz do câmbio no painel."><strong>Luz do câmbio acesa</strong><span>O módulo achou uma falha e gravou um código. Dá para ler antes que o defeito cresça.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro está patinando, sem força para sair."><strong>Patina ou fica sem força</strong><span>O giro sobe e o carro não acompanha. Costuma ser desgaste interno ou óleo vencido.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro demora para engatar o D ou a ré."><strong>Demora para engatar o D ou a ré</strong><span>Passam alguns segundos entre engatar e o carro responder.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="O carro entrou em modo de emergência."><strong>Entrou em modo de emergência</strong><span>O câmbio trava numa marcha para se proteger. O ideal é rodar o mínimo até o diagnóstico.</span><small>Falar sobre isso</small></button>
+      <button class="sym" data-wa="sintoma" data-msg="Meu câmbio manual está arranhando ou duro para engatar."><strong>Câmbio manual arranhando</strong><span>Marcha que arranha, escapa ou fica dura de engatar.</span><small>Falar sobre isso</small></button>
+      <button class="sym other" data-wa="sintoma" data-msg="Meu carro está com outro problema no câmbio. Vou explicar:"><strong>É outra coisa</strong><small>Contar o que está acontecendo</small></button>
     </div>
   </div>
 </section>
 
 
-<!-- SERVIÇOS -->
 <section id="servicos" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <h2>Serviços</h2>
-      <p class="sub">A oficina é de câmbio automático. Também fazemos a revisão do ano, com óleo do motor e filtros.</p>
+      <h2>O que a gente faz</h2>
+      <p class="sub">Câmbio é o nosso trabalho do dia inteiro.</p>
     </div>
     <div class="services">
-      <article class="svc main">
-        <img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt="Carcaça de câmbio automático aberta na bancada">
-        <div>
-          <h3>Reparo de câmbio automático</h3>
-          <p>Abrimos, trocamos o que está gasto e testamos antes de devolver. Atendemos câmbios nacionais e importados, de todas as marcas.</p>
-          <a class="btn btn-ac" data-wa="servico" data-msg="Quero orçar o reparo do meu câmbio automático." href="#">Pedir orçamento do reparo</a>
-        </div>
+      <article class="svc">
+        <img loading="lazy" decoding="async" src="assets/ig/DbJOhFKRZUY.webp" alt="Câmbio automático aberto na bancada">
+        <div><h3>Reparo de câmbio</h3><p>Automático e manual, incluindo DSG, CVT e automatizado. Nacionais e importados, de todas as marcas.</p><a class="more" data-wa="servico" data-msg="Quero orçar o reparo do meu câmbio." href="#">Pedir orçamento</a></div>
       </article>
       <article class="svc">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=480&q=60&auto=format&fm=webp" alt="Troca de óleo">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=480&q=60&auto=format&fm=webp" alt="Troca de óleo do câmbio">
         <div><h3>Troca de óleo do câmbio</h3><p>Feita com máquina própria para câmbio automático.</p><a class="more" data-wa="servico" data-msg="Quero orçar a troca de óleo do câmbio." href="#">Pedir orçamento</a></div>
       </article>
-      <article class="svc">
-        <img loading="lazy" decoding="async" src="assets/ig/DbGke-hxpUV.webp" alt="Mecatrônica de câmbio">
-        <div><h3>Mecatrônicas</h3><p>Reparo e venda, com teste em bancada e garantia.</p><a class="more" data-wa="servico" data-msg="Preciso de reparo ou compra de mecatrônica." href="#">Pedir orçamento</a></div>
-      </article>
-      <article class="svc">
-        <img loading="lazy" decoding="async" src="assets/ig/DcZ0sQTtQYz.webp" alt="Alavanca de câmbio automático">
-        <div><h3>Módulos TCM</h3><p>Reparo, venda e clonagem do módulo que comanda o câmbio.</p><a class="more" data-wa="servico" data-msg="Preciso de reparo, compra ou clonagem de módulo TCM." href="#">Pedir orçamento</a></div>
-      </article>
-      <article class="svc">
-        <img loading="lazy" decoding="async" src="assets/ig/Db6xWc6tRbK.webp" alt="Câmbio DSG na bancada">
-        <div><h3>DSG, CVT e automatizado</h3><p>Dupla embreagem, CVT e câmbios automatizados.</p><a class="more" data-wa="servico" data-msg="Meu carro tem câmbio DSG/CVT/automatizado e preciso de orçamento." href="#">Pedir orçamento</a></div>
-      </article>
-      <article class="svc">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=480&q=60&auto=format&fm=webp" alt="Revisão do motor">
-        <div><h3>Revisão do ano</h3><p>Óleo do motor e filtros, a revisão básica que todo carro precisa.</p><a class="more" data-wa="servico" data-msg="Quero orçar a revisão: óleo do motor e filtros." href="#">Pedir orçamento</a></div>
-      </article>
-      <!-- COMBO: aguardando o cliente confirmar condição -->
-      <div class="combo">
-        <div><b>Vai reparar o câmbio?</b><p>A troca de óleo do câmbio entra junto no mesmo serviço. Pergunte a condição pelo WhatsApp.</p></div>
-        <a class="btn btn-ac" data-wa="combo" data-msg="Quero saber a condição do reparo do câmbio com a troca de óleo junto." href="#">Perguntar a condição</a>
-      </div>
     </div>
   </div>
 </section>
 
-<section id="oficina" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2>Quem cuida do seu carro</h2>
-      <p class="sub">Duas unidades em Jundiaí, com equipe própria do diagnóstico à entrega.</p>
-    </div>
-    <div class="shop">
-      <div class="shop-vids">
-        <button class="svid" data-video="assets/video/DbbOhk8xsLk.mp4" aria-label="Assistir: o que encontramos no câmbio">
-          <video muted loop playsinline preload="none" data-lazy poster="assets/video/DbbOhk8xsLk.webp"><source data-src="assets/video/prev_DbbOhk8xsLk.mp4" type="video/mp4"></video>
-          <span class="reel-play"></span><span class="svid-cap"><small>Com áudio</small>O que encontramos no câmbio</span>
-        </button>
-        <button class="svid" data-video="assets/video/DbTsPnJp6vy.mp4" aria-label="Assistir: um câmbio aberto, explicado">
-          <video muted loop playsinline preload="none" data-lazy poster="assets/video/DbTsPnJp6vy.webp"><source data-src="assets/video/prev_DbTsPnJp6vy.mp4" type="video/mp4"></video>
-          <span class="reel-play"></span><span class="svid-cap"><small>Com áudio</small>Um câmbio aberto, explicado</span>
-        </button>
-      </div>
-      <!-- TROCAR: quando o cliente mandar, dá para somar foto da fachada e da equipe -->
-      <div class="facts">
-        <div class="fact"><b>Atendimento com o Fernando e o Everton</b><p>Os clientes citam os dois pelo nome nas avaliações do Google.</p></div>
-        <!-- TROCAR: colocar o prazo da garantia quando o cliente confirmar -->
-        <div class="fact"><b>Serviço com garantia</b><p>O prazo vem escrito no orçamento, antes de você autorizar.</p></div>
-        <div class="fact"><b>Teste antes de devolver</b><p>O câmbio é montado, testado e só depois o carro volta para você.</p></div>
-        <a class="btn btn-ac" data-wa="oficina" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Falar com a equipe</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- COMO FUNCIONA -->
-<section id="como" style="padding-top:0">
-  <div class="wrap flow">
-    <div class="head">
-      <h2>Como funciona</h2>
-      <p class="sub">Você só autoriza o serviço depois de saber o defeito e o valor.</p>
-      <div style="margin-top:8px"><a class="btn btn-ac" data-wa="processo" href="#">Começar pelo WhatsApp</a></div>
-    </div>
-    <div>
-      <div class="steps">
-        <div class="step"><div><h3>Você chama no WhatsApp</h3><p>Manda o modelo e o ano do carro, o sintoma e a sua cidade.</p></div></div>
-        <div class="step"><div><h3>A gente faz o diagnóstico</h3><p>Leitura da transmissão com scanner e teste com o carro. Aí você recebe o orçamento.</p></div></div>
-        <div class="step"><div><h3>Você aprova e a gente executa</h3><p>Reparo completo de câmbio leva de 10 a 15 dias. Troca de óleo e serviços menores saem bem antes.</p></div></div>
-      </div>
-      <p class="tip">Se o carro não anda, temos leva e traz. Muita gente também chega de guincho, a gente orienta.</p>
-    </div>
-  </div>
-</section>
 
 <!-- LEVA E TRAZ -->
 <section id="leva" style="padding-top:0">
   <div class="wrap">
     <div class="pickup">
       <div style="display:grid;gap:14px">
-        <h2>Carro parado na garagem?</h2>
-        <p>Buscamos o carro em Jundiaí e região e devolvemos pronto. Atendemos também clientes de Campinas e São Paulo.</p>
+        <h2>Leva e traz do seu carro</h2>
+        <p>Se o carro não roda ou você não tem tempo de levar, a gente busca em Jundiaí e região e devolve pronto. Atendemos também clientes de Campinas e São Paulo.</p>
       </div>
       <div class="btns">
-        <a class="btn btn-white" data-wa="leva-traz" data-msg="Meu carro está parado e preciso do leva e traz." href="#">Pedir leva e traz</a>
+        <a class="btn btn-white" data-wa="leva-traz" data-msg="Preciso do leva e traz para o meu carro." href="#">Pedir leva e traz</a>
         <a class="btn btn-line" id="call2" href="#">Ligar agora</a>
       </div>
     </div>
@@ -654,7 +572,6 @@ footer.site a:hover{color:#fff}
         <p>Top, só excelência</p>
       </article>
     </div>
-    <div style="margin-top:30px"><a class="btn btn-wa" data-wa="avaliacoes" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Falar com a oficina</a></div>
   </div>
 </section>
 
@@ -663,53 +580,19 @@ footer.site a:hover{color:#fff}
   <div class="wrap contact">
     <div>
       <div class="head">
-        <h2>Manda o carro e o sintoma</h2>
-        <p class="sub">Preencha e a mensagem abre pronta no nosso WhatsApp.</p>
+        <h2>Onde estamos</h2>
+        <p class="sub">R. Armando Davini, 55 · Jundiaí/SP</p>
       </div>
       <div class="info">
-        <div class="unit">
-          <h3>R. Diácono Evaristo Bartolomeu, 183</h3>
-          <p>Parque Residencial Jundiaí · Jundiaí/SP</p>
-          <div class="row">
-            <a class="btn btn-wa" data-wa="unidade-1" data-msg="Quero atendimento na unidade da R. Diácono Evaristo Bartolomeu." href="#">WhatsApp</a>
-            <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.+Di%C3%A1cono+Evaristo+Bartolomeu+183+Jundia%C3%AD">Como chegar</a>
-          </div>
+        <p class="hours"><b>Horário:</b> seg. a sex. 8h às 18h · sáb. 8h às 12h<br><b>Telefone:</b> (11) 96321-8005</p>
+        <div class="row2">
+          <a class="btn btn-wa" data-wa="contato" data-msg="Quero agendar um horário na oficina." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Agendar pelo WhatsApp</a>
+          <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.+Armando+Davini+55+Jundia%C3%AD">Como chegar</a>
         </div>
-        <!-- confirmar bairro/cidade da 2ª unidade -->
-        <div class="unit">
-          <h3>R. Armando Davini, 55</h3>
-          <p>Jundiaí/SP</p>
-          <div class="row">
-            <a class="btn btn-wa" data-wa="unidade-2" data-msg="Quero atendimento na unidade da R. Armando Davini." href="#">WhatsApp</a>
-            <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.+Armando+Davini+55+Jundia%C3%AD">Como chegar</a>
-          </div>
-        </div>
-        <p class="hours"><b>Horário:</b> seg. a sex. 8h às 18h · sáb. 8h às 12h<br><b>Telefone:</b> (11) 96321-8005 · contato@cambioexpress.com.br</p>
       </div>
     </div>
-    <form class="form" id="form">
-      <label>Carro e ano<input name="carro" placeholder="Ex.: Jeep Compass 2019" autocomplete="off" required></label>
-      <label>O que está acontecendo?
-        <select name="sintoma">
-          <option>Tranco na troca de marcha</option>
-          <option>Luz do câmbio acesa</option>
-          <option>Patina ou fica sem força</option>
-          <option>Demora para engatar o D ou a ré</option>
-          <option>Barulho ou vibração</option>
-          <option>Modo de emergência</option>
-          <option>Troca de óleo do câmbio</option>
-          <option>Mecatrônica ou módulo TCM</option>
-          <option>Revisão: óleo do motor e filtros</option>
-          <option>Outra coisa</option>
-        </select>
-      </label>
-      <label>Sua cidade<input name="cidade" placeholder="Ex.: Jundiaí" autocomplete="address-level2"></label>
-      <label>Precisa buscar o carro?
-        <select name="busca"><option>Não, eu levo até a oficina</option><option>Sim, preciso do leva e traz</option></select>
-      </label>
-      <button class="btn btn-wa btn-full" type="submit"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Enviar pelo WhatsApp</button>
-      <p class="hint">Você recebe o orçamento depois do diagnóstico</p>
-    </form>
+    <!-- TROCAR: somar foto da fachada quando o cliente mandar -->
+    <div class="map"><iframe title="Mapa da Câmbio Express" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.+Armando+Davini,+55,+Jundia%C3%AD+-+SP&output=embed"></iframe></div>
   </div>
 </section>
 
@@ -731,6 +614,9 @@ footer.site a:hover{color:#fff}
     </div>
   </div>
 </section>
+<section class="others">
+  <div class="wrap"><p><b>Também fazemos:</b> reparo e venda de mecatrônicas, módulos TCM e a revisão do ano (óleo do motor e filtros).</p></div>
+</section>
 </main>
 
 <footer class="site">
@@ -745,10 +631,6 @@ footer.site a:hover{color:#fff}
   </div>
 </footer>
 
-<div class="sticky" id="sticky">
-  <a class="btn btn-wa" data-wa="barra-fixa" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Chamar no WhatsApp</a>
-  <a class="call" id="call" href="#" aria-label="Ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
-</div>
 <a class="fab" id="fab" data-wa="flutuante" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><use href="#wa"/></svg></a>
 
 <svg width="0" height="0" style="position:absolute"><symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></symbol></svg>
@@ -765,14 +647,8 @@ document.querySelectorAll("[data-wa]").forEach(el=>{
   if(el.tagName==="A"){ el.href=link(m); el.target="_blank"; el.rel="noopener"; }
   el.addEventListener("click",()=>{ track(el.dataset.wa); if(el.tagName==="BUTTON") window.open(link(m),"_blank"); });
 });
-["call","call2"].forEach(id=>document.getElementById(id).href="tel:"+TEL);
+["call","call2"].forEach(id=>{const e=document.getElementById(id);if(e)e.href="tel:"+TEL;});
 
-document.getElementById("form").addEventListener("submit",e=>{
-  e.preventDefault();
-  const f=new FormData(e.target);
-  const m=`Carro: ${f.get("carro")}. Problema: ${f.get("sintoma")}. Cidade: ${f.get("cidade")||"-"}. ${f.get("busca")}.`;
-  track("formulario"); window.open(link(m),"_blank");
-});
 
 const revs=document.querySelector(".reviews");
 document.querySelectorAll(".rev-nav button").forEach(b=>b.addEventListener("click",()=>revs.scrollBy({left:+b.dataset.dir*352*3,behavior:"smooth"})));
@@ -833,15 +709,14 @@ if(innerWidth>=768)hv.poster="assets/video/hero.webp";
 addEventListener("load",()=>setTimeout(()=>{hv.src=innerWidth<768?"assets/video/hero-m.mp4":"assets/video/hero.mp4";hv.play().catch(()=>{});},300));
 const lv=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.dataset.ok){v.querySelectorAll("source").forEach(s=>s.src=s.dataset.src);v.load();v.dataset.ok=1;}v.play().catch(()=>{});}else v.pause();}),{rootMargin:"200px"});
 document.querySelectorAll("video[data-lazy]").forEach(v=>lv.observe(v));
-const top_=document.getElementById("top"), sticky=document.getElementById("sticky"), fab=document.getElementById("fab");
+const top_=document.getElementById("top"), fab=document.getElementById("fab");
 let inContact=false;
 new IntersectionObserver(([e])=>{inContact=e.isIntersecting;onScroll();},{threshold:.2}).observe(document.getElementById("contato"));
 function onScroll(){
   const past=scrollY>innerHeight*.7;
   top_.classList.toggle("solid",scrollY>30);
   const hero=document.querySelector(".hero");top_.classList.toggle("pill",scrollY>hero.offsetHeight-90);
-  sticky.classList.toggle("show",past&&!inContact);
-  fab.classList.toggle("show",past);
+  fab.classList.toggle("show",past&&!inContact);
 }
 addEventListener("scroll",onScroll,{passive:true}); onScroll();
 </script>
