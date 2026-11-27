@@ -100,7 +100,12 @@ section{padding:var(--sec) 0}
 .hero h1 em{font-style:normal;color:#7FA3FF}
 .hero .lead{color:#C3C8D0;font-size:4.2vw;line-height:1.45;margin-bottom:24px}
 .hero .ctas{display:grid;gap:14px;max-width:420px;margin:0 auto;justify-items:center}
+.hero .cta-primary{display:grid;gap:10px;width:100%;justify-items:center}
 .hero .ctas .btn-ac{width:100%;min-height:60px;font-size:18px;box-shadow:0 14px 34px -12px rgba(31,94,255,.85)}
+.hero .payment{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:28px;padding:3px 6px;color:#C3C8D0;font-size:15px;line-height:1.4;border-radius:6px;transition:color .2s}
+.hero .payment svg{width:19px;height:19px;flex:none;color:#7FA3FF}
+.hero .payment:hover{color:#fff}
+.hero .payment:focus-visible{outline:2px solid #7FA3FF;outline-offset:4px}
 .hero .ctas .alt{font-size:15px;color:#C3C8D0;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr) auto;align-items:center;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);text-align:left}
 .hero-stats b{display:block;font-weight:500;font-size:30px;letter-spacing:-.03em;line-height:1}
@@ -330,8 +335,10 @@ footer.site a:hover{color:#fff}
   .hero h1{max-width:none;white-space:nowrap}
   .hero .lead{max-width:36ch}
   .hero .lead{font-size:18px;max-width:520px}
-  .hero .ctas{display:flex;align-items:center;gap:24px;max-width:none;margin:0}
+  .hero .ctas{display:flex;align-items:flex-start;gap:24px;max-width:none;margin:0}
+  .hero .cta-primary{width:auto;flex:none}
   .hero .ctas .btn-ac{width:auto;padding:0 38px}
+  .hero .ctas .alt{margin-top:18px}
   .hero-stats{grid-template-columns:repeat(3,auto) auto;justify-content:end;gap:34px;margin:0;padding:0;border:0}
   .hero-stats b{font-size:48px}
   .hero-stats span{font-size:13px}
@@ -416,9 +423,12 @@ footer.site a:hover{color:#fff}
   <div class="wrap">
     <div>
       <h1>Câmbio com tranco ou <br class="m"><em>luz acesa</em> no painel?</h1>
-      <p class="lead">Conserto de câmbio automático, híbridos e elétricos em Jundiaí. Pagamento facilitado.</p>
+      <p class="lead">Conserto de câmbio automático,<br>híbridos e elétricos em Jundiaí.</p>
       <div class="ctas">
-        <a class="btn btn-ac" data-wa="hero" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Falar com um especialista</a>
+        <div class="cta-primary">
+          <a class="btn btn-ac" data-wa="hero" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Falar com um especialista</a>
+          <a class="payment" data-wa="hero-pagamento" data-msg="Quero saber as condições de pagamento facilitado para o reparo do meu câmbio." href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 9h20M6 15h3"/></svg><span>Pagamento facilitado</span></a>
+        </div>
         <a class="alt" href="#sintomas">Ver problemas comuns</a>
       </div>
     </div>
